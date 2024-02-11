@@ -1,5 +1,18 @@
-// Animation Timeline
 const animationTimeline = () => {
+    const tl = new TimelineMax();
+   
+   // Get the audio element
+const audio = document.getElementById("valentineSong");
+document.addEventListener("click", handleUserInteraction);
+
+    function handleUserInteraction() {
+        // Try to play the audio when it's fully loaded
+        audio.play();
+}
+
+
+// Remaining code
+
   // Spit chars that needs to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
@@ -26,7 +39,6 @@ const animationTimeline = () => {
     skewX: "-15deg",
   };
 
-  const tl = new TimelineMax();
 
   tl.to(".container", 0.1, {
     visibility: "visible",
@@ -264,7 +276,9 @@ const animationTimeline = () => {
       },
       "+=1"
     );
-
+tl.add(() => {
+  audio.play();
+});
   // tl.seek("currentStep");
   // tl.timeScale(2);
 
